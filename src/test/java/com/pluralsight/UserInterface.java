@@ -1,5 +1,5 @@
 package com.pluralsight;
-
+import java.util.Scanner;
 import java.util.ArrayList;
 
 public class UserInterface {
@@ -12,6 +12,7 @@ public class UserInterface {
 
     public void display(){
         init();
+        Scanner scanner = new Scanner(System.in);
 
         boolean appRunning = true;
         while(appRunning){
@@ -30,6 +31,23 @@ public class UserInterface {
             System.out.println("99 - Quit");
             System.out.print("Enter option: ");
 
+
+            String option = scanner.nextLine();
+
+            switch (option) {
+                case "7":
+                    processGetAllVehicleRequest();
+                    break;
+
+                case "99":
+                    appRunning = false;
+                    System.out.println("Goodbye!");
+                    break;
+
+                default:
+                    System.out.println("Option not available yet.");
+                    break;
+            }
 
         }
 
